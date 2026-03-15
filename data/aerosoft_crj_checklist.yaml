@@ -1,0 +1,412 @@
+id: aerosoft-crj
+name: Aerosoft CRJ Series
+sections:
+  - name: Safety Check
+    items:
+      - action: N/W STRG
+        value: "OFF"
+      - action: HYDRAULIC Panel
+        value: CHECK OFF
+      - action: Landing Gear
+        value: DOWN
+      - action: Flaps
+        value: UP
+      - action: Spoilers
+        value: RETRACTED
+      - action: RADAR
+        value: "OFF"
+      - action: Parking Brake
+        value: SET
+      - action: ADG
+        value: CLOSED
+      - action: EMER FLAP
+        value: NORMAL
+
+  - name: Cockpit Preparation
+    items:
+      - action: ANTI-ICE
+        value: CHECKED
+      - action: Windshield LH & RH
+        value: LOW
+      - action: Misc. Lights
+        value: As Required
+      - action: Emergency Lights
+        value: ARM
+      - action: Instrument Panels
+        value: CHECKED
+      - action: Upper Pedestal
+        value: CHECKED
+      - action: Thrust Lever Quadrant
+        value: CHECKED
+      - action: Thrust Reverser LH & RH
+        value: ARMED
+      - action: Avionics
+        value: CHECKED
+      - action: Stab Trim & Mach Trim
+        value: "ON"
+      - action: Yaw Damper YD1 & YD2
+        value: "ON"
+
+  - name: EFB Setup
+    items:
+      - action: EFB
+        value: Click ON
+      - action: EFB Performance Page
+        value: SET PAX, CARGO, FUEL
+      - action: Passenger Door
+        value: OPEN
+      - action: Guard Rails
+        value: UP/DOWN
+      - action: Ground Power Cart
+        value: OPTIONAL
+
+  - name: Originating Check
+    items:
+      - action: Battery Master
+        value: "ON"
+      - action: AC Switch (If Ground Power Connected)
+        value: "ON"
+      - action: APU PWR FUEL Switch
+        value: "ON"
+      - action: APU START/STOP Switch
+        value: "ON"
+      - action: IRS 1 & 2
+        value: NAV
+      - action: Internal Lights
+        value: As Required
+      - action: ELECTRICAL POWER Panel
+        value: CHECKED
+      - action: FIRE DETECTION Test
+        value: COMPLETE
+      - action: External Lights
+        value: CHECKED
+      - action: FUEL Panel
+        value: CHECKED
+      - action: BLEED AIR Panel
+        value: CHECKED
+      - action: APU Panel
+        value: CHECKED
+      - action: HYDRAULIC Panel 1, 3B, 2
+        value: AUTO
+      - action: HYDRAULIC Panel 3A
+        value: "OFF"
+      - action: ELT
+        value: ARMED
+      - action: CABIN PRESS Panel
+        value: CHECKED
+      - action: PACKS
+        value: "ON"
+      - action: RECIRC FAN
+        value: "ON"
+      - action: AFT CARGO
+        value: COND AIR/ON
+
+  - name: Before Start
+    items:
+      - action: No Smoking & Seat Belts
+        value: ON/AUTO
+      - action: Landing Elevation
+        value: SET
+      - action: Altimeters
+        value: SET QNH
+      - action: FMS
+        value: SETUP
+      - action: IRS
+        value: CHECK ALIGNED
+      - action: Radios and Nav Aids
+        value: SET
+      - action: ATC Clearance
+        value: As Required
+      - action: Take-off Speeds
+        value: SET
+      - action: Take-off Trim
+        value: SET
+      - action: Initial Altitude
+        value: SET
+      - action: Initial Heading
+        value: SET
+      - action: Take-off Briefing
+        value: COMPLETE
+
+  - name: Cleared to Start
+    items:
+      - action: APU
+        value: CHECK ON
+      - action: Electrics
+        value: CHECKED
+      - action: Take-off Data
+        value: VERIFY SET
+      - action: Doors
+        value: CLOSED, LOCKED
+      - action: Beacon Light
+        value: "ON"
+      - action: FUEL PUMP BOOST L & R
+        value: "ON"
+      - action: HYDRAULIC Pumps 1, 3B, 2
+        value: AUTO
+      - action: HYDRAULIC Pumps 3A
+        value: "ON"
+      - action: Parking Brake
+        value: ON/OFF
+      - action: Pushback
+        value: As Required
+
+  - name: Starting Engines
+    items:
+      - action: R ENGINE START
+        value: START
+      - action: R Engine N2 > 20%
+        value: Raise Thrust Lever to IDLE
+      - action: L ENGINE START
+        value: START
+      - action: L Engine N2 > 20%
+        value: Raise Thrust Lever to IDLE
+
+  - name: After Start
+    items:
+      - action: Probes LH & RH
+        value: "ON"
+      - action: Generators
+        value: CHECK AUTO
+      - action: Electrics
+        value: CHECKED
+      - action: BLEED Valves
+        value: AUTO
+      - action: PACKS
+        value: CHECK ON
+      - action: APU START/STOP Switch
+        value: "OFF"
+      - action: APU PWR FUEL Switch
+        value: "OFF"
+      - action: ANTI-ICE
+        value: As Required
+      - action: N/W STRG
+        value: ARMED
+
+  - name: Taxi
+    items:
+      - action: Flaps
+        value: SET FOR TAKEOFF
+      - action: Flight Controls
+        value: CHECK
+      - action: Trims
+        value: GREEN, CHECKED
+      - action: Thrust Reversers
+        value: ARMED
+      - action: Taxi Lights
+        value: "ON"
+      - action: Flight Instruments
+        value: CHECKED
+      - action: Brake Temp
+        value: CHECKED
+
+  - name: Before Takeoff
+    items:
+      - action: Landing Lights and Strobes
+        value: "ON"
+      - action: FUEL XFLOW AUTO OVERRIDE
+        value: MANUAL
+      - action: Transponder/TCAS
+        value: CHECK/SET
+      - action: Radar/Terrain Display
+        value: SET
+      - action: CAS
+        value: CHECKED
+
+  - name: Takeoff
+    items:
+      - action: TO/GA Button
+        value: PRESS
+      - action: Throttle
+        value: Set 50% N1
+      - action: Throttle Stable
+        value: Set TO/GA Detent
+      - action: Rotate
+        value: Gently at VR
+      - action: Airspeed
+        value: Maintain V2 + 10
+
+  - name: Climb
+    items:
+      - action: Landing Gear
+        value: UP
+      - action: HDG or NAV
+        value: Activate at 400ft
+      - action: SPEED Mode
+        value: Activate at 600ft
+      - action: Throttle
+        value: Pull back to CLIMB at 1500ft
+      - action: Flaps
+        value: UP
+      - action: Autopilot
+        value: As Required
+      - action: FUEL XFLOW
+        value: SET AUTO
+      - action: Bleeds and APU
+        value: CHECK
+      - action: Thrust Reversers
+        value: "OFF"
+      - action: CAS
+        value: CHECKED
+      - action: Speed below 10000ft
+        value: MAX 250 KIAS
+      - action: Passenger Signs (Above 10000ft)
+        value: As Required
+      - action: Landing and Taxi Lights (Above 10000ft)
+        value: "OFF"
+
+  - name: Cruise
+    items:
+      - action: Throttles
+        value: As Required
+      - action: Anti-Ice Systems
+        value: As Required
+      - action: Monitor Flight
+        value: null
+      - action: Monitor Weather
+        value: null
+      - action: Monitor ATC
+        value: null
+
+  - name: Descent
+    items:
+      - action: Landing Elevation
+        value: CHECK/SET
+      - action: Fuel
+        value: CHECKED
+      - action: TCAS
+        value: CHECK/SET
+      - action: Radar/Terrain Display
+        value: SET
+      - action: CAS
+        value: CHECKED
+      - action: Landing Data
+        value: SET
+      - action: Approach Briefing
+        value: COMPLETE
+      - action: Speed below 10000ft
+        value: MAX 250 KIAS
+      - action: Passenger Signs (Below 10000ft)
+        value: "ON"
+      - action: Landing Lights (Below 10000ft)
+        value: "ON"
+      - action: Altimeters
+        value: Set QNH at Transition
+
+  - name: Approach
+    items:
+      - action: Landing Data
+        value: VERIFY
+      - action: ILS Frequency
+        value: Tune into FMS/COM Radio
+      - action: Avionics/Instruments
+        value: CHECK
+      - action: Exterior Lights
+        value: As Required
+      - action: Anti-Ice Systems
+        value: As Required
+      - action: Flaps 1
+        value: Set at 190 KIAS
+      - action: Flaps 8
+        value: Set at 180 KIAS
+      - action: Flaps 20
+        value: Set at 170 KIAS
+      - action: NAV Source
+        value: Switch FMS to NAV1
+      - action: Autopilot APPR
+        value: ARM
+
+  - name: Before Landing
+    items:
+      - action: Passenger Signs
+        value: CHECK ON
+      - action: Thrust Reversers
+        value: ARMED
+      - action: Landing Gear
+        value: DOWN
+      - action: Flaps
+        value: "45, INDICATING"
+      - action: Airspeed
+        value: VREF
+      - action: Autopilot
+        value: As Required
+
+  - name: Go Around
+    items:
+      - action: Radios and Nav Aids
+        value: SET FOR G/A
+      - action: Thrust Levers
+        value: SET TOGA
+      - action: TOGA Switch
+        value: PRESS
+      - action: Flaps
+        value: "8"
+      - action: Landing Gear
+        value: RETRACT / UP
+      - action: Airspeed
+        value: Maintain V2GA+10 or Higher
+      - action: Missed Approach Procedures
+        value: ACCOMPLISH
+
+  - name: After Landing
+    items:
+      - action: APU
+        value: As Required
+      - action: Spoilers
+        value: RETRACTED
+      - action: Flaps
+        value: UP/ZERO
+      - action: Landing Lights & Strobes
+        value: "OFF"
+      - action: Taxi Lights
+        value: "ON"
+      - action: Probes LH & RH
+        value: "OFF"
+
+  - name: Shutdown
+    items:
+      - action: Parking Brake
+        value: SET
+      - action: Passenger Signs
+        value: "OFF"
+      - action: Thrust Levers
+        value: SHUT OFF
+      - action: Anti-Ice
+        value: "OFF"
+      - action: Fuel Pumps
+        value: "OFF"
+      - action: Hydraulic 3A Pump
+        value: As Required
+      - action: Beacon Light
+        value: "OFF"
+      - action: N/W STRG Switch
+        value: "OFF"
+
+  - name: Terminating Check
+    items:
+      - action: Chocks and Brakes
+        value: IN / OFF
+      - action: IRS 1 & 2
+        value: "OFF"
+      - action: Thrust Levers
+        value: "OFF"
+      - action: Emergency Lights Switch
+        value: "OFF"
+      - action: Windshield LH & RH
+        value: "OFF"
+      - action: AFT CARGO Switch
+        value: "OFF"
+      - action: HYDRAULIC Pumps
+        value: "OFF"
+      - action: External Light Switches
+        value: "OFF"
+      - action: APU START/STOP Switch
+        value: "OFF"
+      - action: APU PWR FUEL
+        value: "OFF"
+      - action: DC Service Switch
+        value: "OFF"
+      - action: Internal Light Switches
+        value: "OFF"
+      - action: Battery Master Switch
+        value: "OFF"
