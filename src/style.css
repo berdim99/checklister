@@ -194,6 +194,13 @@ h2 {
   cursor: not-allowed;
 }
 
+.keyboard-hint {
+  font-size: 0.85rem;
+  color: #888;
+  text-align: center;
+  margin: 0.5rem 0 1rem;
+}
+
 .clear-btn {
   background: #8b0000;
 }

@@ -129,6 +129,12 @@ export function renderSection(
 
   app.appendChild(table);
 
+  const hint = document.createElement("p");
+  hint.className = "keyboard-hint";
+  hint.textContent =
+    "Use Arrow Up / Arrow Down to navigate between actions. Press Space to check or uncheck an action.";
+  app.appendChild(hint);
+
   // Keyboard navigation
   const rows = Array.from(table.rows);
   let highlightedIndex = 0;
