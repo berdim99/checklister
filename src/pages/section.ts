@@ -132,7 +132,7 @@ export function renderSection(
   const hint = document.createElement("p");
   hint.className = "keyboard-hint";
   hint.textContent =
-    "Use Arrow Up / Arrow Down to navigate between actions. Press Space to check or uncheck an action.";
+    "Arrow Up / Down to navigate actions. Space to check or uncheck. Arrow Left / Right to switch sections.";
   app.appendChild(hint);
 
   // Keyboard navigation
@@ -179,6 +179,12 @@ export function renderSection(
       if (highlightedIndex < rows.length - 1) {
         setHighlight(highlightedIndex + 1);
       }
+    } else if (e.key === "ArrowLeft" && sectionIndex > 0) {
+      e.preventDefault();
+      location.hash = `#/${aircraftId}/${slugify(checklist.sections[sectionIndex - 1].name)}`;
+    } else if (e.key === "ArrowRight" && sectionIndex < checklist.sections.length - 1) {
+      e.preventDefault();
+      location.hash = `#/${aircraftId}/${slugify(checklist.sections[sectionIndex + 1].name)}`;
     }
   };
 
