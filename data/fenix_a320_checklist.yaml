@@ -1,0 +1,385 @@
+id: fenix-a320
+name: Fenix Sim A320
+sections:
+  - name: Pre-Flight
+    items:
+      - action: Parking Brake
+        value: "ON"
+      - action: Weather Radar
+        value: "OFF"
+      - action: Predictive Windshear
+        value: "OFF"
+      - action: Spoilers
+        value: Disarmed & Retracted
+      - action: Flaps
+        value: Retracted
+      - action: Engine Mode Selector
+        value: NORM
+      - action: Engine Masters
+        value: "OFF"
+      - action: Thrust Levers
+        value: IDLE
+      - action: Transponder Mode
+        value: STBY
+      - action: Anti-Skid
+        value: "ON"
+      - action: Landing Gear Lever
+        value: DOWN
+      - action: Wipers
+        value: "OFF"
+
+  - name: Cockpit Preparation
+    items:
+      - action: Battery 1 + 2
+        value: "ON"
+      - action: External Power
+        value: "ON"
+      - action: APU & ENG Fire Tests
+        value: Perform
+      - action: Crew Supply
+        value: "ON"
+      - action: ADIRS (1, 2 & 3)
+        value: NAV
+      - action: Cockpit Lights
+        value: As Required
+      - action: NAV & Logo Lights
+        value: "ON"
+      - action: No Smoking Signs
+        value: ON/Auto
+      - action: Emergency Lights
+        value: ARM
+      - action: EFB
+        value: Setup
+      - action: Annunciator Lights
+        value: Test
+      - action: Probe/Window Heat
+        value: Auto
+      - action: Anti-Ice
+        value: "OFF"
+      - action: Air Condition
+        value: As Required
+      - action: ACCU & Brake Pressure
+        value: Checked
+      - action: ECAM Status
+        value: Checked
+      - action: ECAM Recall
+        value: Checked
+      - action: Radio Panels
+        value: Setup
+      - action: Baro
+        value: Set QNH / inHg
+      - action: EFIS
+        value: CSTR, ARC, 10NM
+
+  - name: Before Start
+    items:
+      - action: Windows & Doors
+        value: Closed & Locked
+      - action: APU
+        value: "ON"
+      - action: APU Bleed
+        value: "ON"
+      - action: MCDU
+        value: Setup
+      - action: Request ATC Clearance
+        value: null
+      - action: Squawk
+        value: Set
+      - action: External Power
+        value: Disconnected & OFF
+      - action: Fuel Pumps
+        value: "ON"
+      - action: Seatbelt Signs
+        value: "ON"
+      - action: Thrust Levers
+        value: IDLE
+      - action: Fuel Quantity
+        value: Checked
+      - action: TO Data
+        value: Set & Reviewed
+      - action: Transponder Mode
+        value: Auto
+      - action: Beacon Lights
+        value: "ON"
+      - action: Engine Mode Selector
+        value: IGN
+      - action: Parking Brake
+        value: As Required
+      - action: Request Pushback and Start
+        value: null
+
+  - name: After Start
+    items:
+      - action: Pushback and Start
+        value: End
+      - action: Parking Brake
+        value: "ON"
+      - action: Engine Mode Selector
+        value: NORM
+      - action: APU
+        value: "OFF"
+      - action: Auto Brakes
+        value: MAX
+      - action: Flight Controls
+        value: Checked
+      - action: Spoilers
+        value: Armed
+      - action: Flaps
+        value: Set To
+      - action: Pitch Trim
+        value: Set To
+      - action: Rudder Trim
+        value: Zero
+      - action: Anti-Ice
+        value: As Required
+      - action: Flight Instruments
+        value: Checked
+
+  - name: Taxi
+    items:
+      - action: Request Taxi Clearance
+        value: null
+      - action: Nose Light
+        value: TAXI
+      - action: RWY Turnoff Lights
+        value: As Required
+      - action: Strobes
+        value: Auto
+      - action: TO Config
+        value: Normal
+
+  - name: Before Takeoff
+    items:
+      - action: Cabin Crew
+        value: Advised
+      - action: Brake Temperature
+        value: Checked
+      - action: Brake Fans
+        value: "OFF"
+      - action: Engine Mode Selector
+        value: As Required
+      - action: Packs
+        value: As Required
+      - action: Weather Radar
+        value: As Required
+      - action: Predictive Windshear
+        value: Auto
+      - action: TCAS
+        value: TA or TA/RA, ABV
+      - action: Nosewheel Lights
+        value: TO
+      - action: Landing Lights
+        value: "ON"
+      - action: ECAM Memo
+        value: TO No Blue
+
+  - name: Takeoff
+    items:
+      - action: Chrono
+        value: Start
+      - action: Brakes
+        value: As Required
+      - action: Engines
+        value: Stabilize at 40% N1
+      - action: Thrust
+        value: FLX / MCT or TOGA
+
+  - name: After Takeoff
+    items:
+      - action: Landing Gear
+        value: Retracted
+      - action: Engine Mode Selector
+        value: NORM
+      - action: Spoilers
+        value: Disarmed & Retracted
+      - action: Thrust
+        value: CLB
+      - action: Flaps
+        value: Retracted
+      - action: Packs
+        value: "ON"
+      - action: Anti-Ice
+        value: As Required
+      - action: Nosewheel Lights
+        value: "OFF"
+      - action: RWY Turnoff Lights
+        value: "OFF"
+
+  - name: Climb
+    items:
+      - action: Baro (Passing Transition Altitude)
+        value: STD
+      - action: Landing Lights (Passing 10000 ft)
+        value: "OFF"
+      - action: Seatbelt Signs
+        value: As Required
+      - action: Anti-Ice
+        value: As Required
+
+  - name: Cruise
+    items:
+      - action: NAV Aids
+        value: As Required
+      - action: Seatbelt Signs
+        value: As Required
+      - action: Monitor Flight
+        value: null
+      - action: Check ECAM
+        value: null
+      - action: Check Weather
+        value: null
+      - action: Prepare for Approach 40NM Before TOD
+        value: null
+
+  - name: Descent
+    items:
+      - action: MCDU LDG Perf
+        value: Reviewed
+      - action: TCAS
+        value: BLW
+      - action: Approach Briefing
+        value: Completed
+      - action: Anti-Ice
+        value: As Required
+      - action: Baro (Passing Transition Altitude)
+        value: Set QNH / inHg
+      - action: Seatbelt Signs (Below 10000 ft)
+        value: "ON"
+      - action: Landing Lights (Below 10000 ft)
+        value: "ON"
+
+  - name: Before Landing
+    items:
+      - action: Cabin Crew
+        value: Advised
+      - action: EFIS
+        value: As Required
+      - action: ND Terrain
+        value: As Required
+      - action: Landing Gear
+        value: DOWN
+      - action: Flaps
+        value: Set LDG
+      - action: Spoilers
+        value: Armed
+      - action: Auto Brakes
+        value: As Required
+      - action: Engine Selector Mode
+        value: As Required
+      - action: Nosewheel Lights
+        value: TO
+      - action: RWY Turnoff Lights
+        value: "ON"
+      - action: Go Around Altitude
+        value: Set
+      - action: ECAM Memo
+        value: LDG No Blue
+
+  - name: After Landing
+    items:
+      - action: Brake Fans
+        value: As Required
+      - action: Landing Lights
+        value: "OFF"
+      - action: Nosewheel Lights
+        value: TAXI
+      - action: RWY Turnoff Lights
+        value: As Required
+      - action: Spoilers
+        value: Disarmed & Retracted
+      - action: Flaps
+        value: Retracted
+      - action: Engine Selector Mode
+        value: NORM
+      - action: TCAS
+        value: STBY
+      - action: Weather Radar
+        value: "OFF"
+      - action: Predictive Windshear
+        value: "OFF"
+      - action: Terrain
+        value: "OFF"
+      - action: Flight Directors
+        value: "OFF"
+      - action: APU
+        value: Start
+      - action: Wing Anti-Ice
+        value: "OFF"
+      - action: Engine Anti-Ice
+        value: As Required
+      - action: APU Bleed
+        value: ON (When Avail)
+
+  - name: Turning to Gate
+    items:
+      - action: RWY Turnoff Lights
+        value: "OFF"
+      - action: Nosewheel Lights
+        value: "OFF"
+
+  - name: Parking
+    items:
+      - action: Parking Brake
+        value: "ON"
+      - action: Engine Masters
+        value: "OFF"
+      - action: Fuel Pumps
+        value: "OFF"
+      - action: Beacon Lights
+        value: "OFF"
+      - action: Seatbelt Signs
+        value: "OFF"
+      - action: Transponder Mode
+        value: "OFF"
+      - action: Anti-Ice
+        value: "OFF"
+      - action: Exterior Lights
+        value: As Required
+      - action: External Power
+        value: ON (If Avail)
+      - action: APU
+        value: OFF (If Ext Pwr Avail)
+
+  - name: Securing the Aircraft
+    items:
+      - action: Brake Fans
+        value: "OFF"
+      - action: Emergency Lights
+        value: "OFF"
+      - action: No Smoking Signs
+        value: "OFF"
+      - action: NAV & Logo Lights
+        value: "OFF"
+      - action: Crew Supply
+        value: "OFF"
+      - action: ADIRS (1, 2 & 3)
+        value: "OFF"
+      - action: Cockpit Lights
+        value: "OFF"
+      - action: APU
+        value: "OFF"
+      - action: External Power
+        value: "OFF"
+      - action: Batteries
+        value: "OFF"
+      - action: EFB
+        value: "OFF"
+
+  - name: Go Around
+    items:
+      - action: Thrust Levers
+        value: TOGA
+      - action: Flaps
+        value: One Notch Up
+      - action: Positive Climb
+        value: Gear Retract
+      - action: Thrust
+        value: CLB
+      - action: Flaps
+        value: Retracted
+      - action: Spoilers
+        value: Disarm
+      - action: Follow Missed Approach Procedures
+        value: null
+      - action: Follow ATC Instruction
+        value: null
