@@ -37,6 +37,12 @@ function render(route: Route): void {
       renderSection(app, route.aircraftId, route.sectionSlug);
       break;
   }
+
+  const footer = document.createElement("footer");
+  footer.className = "site-footer";
+  footer.innerHTML =
+    '© 2026 Micha B. · <a href="https://github.com/berdim99/checklister/" target="_blank" rel="noopener">GitHub</a>';
+  app.appendChild(footer);
 }
 
 export function initRouter(): void {

@@ -203,6 +203,18 @@ export function renderSection(
   const footer = document.createElement("div");
   footer.className = "section-footer";
 
+  const prevBtn = document.createElement("button");
+  prevBtn.textContent = "\u2190 Previous";
+  prevBtn.className = "nav-btn";
+  if (sectionIndex === 0) {
+    prevBtn.disabled = true;
+  } else {
+    prevBtn.addEventListener("click", () => {
+      location.hash = `#/${aircraftId}/${slugify(checklist.sections[sectionIndex - 1].name)}`;
+    });
+  }
+  footer.appendChild(prevBtn);
+
   const clearBtn = document.createElement("button");
   clearBtn.textContent = "Clear All";
   clearBtn.className = "nav-btn clear-btn";
@@ -215,18 +227,6 @@ export function renderSection(
     saveCheckedState();
   });
   footer.appendChild(clearBtn);
-
-  const prevBtn = document.createElement("button");
-  prevBtn.textContent = "\u2190 Previous";
-  prevBtn.className = "nav-btn";
-  if (sectionIndex === 0) {
-    prevBtn.disabled = true;
-  } else {
-    prevBtn.addEventListener("click", () => {
-      location.hash = `#/${aircraftId}/${slugify(checklist.sections[sectionIndex - 1].name)}`;
-    });
-  }
-  footer.appendChild(prevBtn);
 
   const nextBtn = document.createElement("button");
   nextBtn.textContent = "Next \u2192";

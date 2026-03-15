@@ -18,6 +18,9 @@ body {
   max-width: 900px;
   margin: 0 auto;
   padding: 1.5rem 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
@@ -207,4 +210,23 @@ h2 {
 
 .clear-btn:hover {
   background: #a52a2a;
+}
+
+/* Site footer */
+.site-footer {
+  margin-top: auto;
+  padding: 1rem 0;
+  border-top: 1px solid #eee;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.site-footer a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
 }
