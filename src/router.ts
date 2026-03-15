@@ -41,7 +41,7 @@ function render(route: Route): void {
   const footer = document.createElement("footer");
   footer.className = "site-footer";
   footer.innerHTML =
-    '© 2026 Micha B. · <a href="https://github.com/berdim99/checklister/" target="_blank" rel="noopener">GitHub</a>';
+    '© 2026 Micha B. · <a href="https://github.com/berdim99/checklister/" target="_blank" rel="noopener">GitHub</a> · FOR FLIGHT SIMULATOR USE ONLY';
   app.appendChild(footer);
 }
 
