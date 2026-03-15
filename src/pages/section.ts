@@ -56,11 +56,36 @@ export function renderSection(
   heading.textContent = section.name;
   app.appendChild(heading);
 
+  // Session storage helpers
+  const storageKey = `checklist:${aircraftId}:${sectionSlug}`;
+
+  function saveCheckedState() {
+    const indices: number[] = [];
+    table.querySelectorAll("tr").forEach((row, i) => {
+      if (row.querySelector<HTMLInputElement>("input")?.checked) {
+        indices.push(i);
+      }
+    });
+    sessionStorage.setItem(storageKey, JSON.stringify(indices));
+  }
+
+  function loadCheckedState(): Set<number> {
+    try {
+      const raw = sessionStorage.getItem(storageKey);
+      return new Set(raw ? JSON.parse(raw) : []);
+    } catch {
+      return new Set();
+    }
+  }
+
   // Checklist table
   const table = document.createElement("table");
   table.className = "checklist-table";
+  const checkedIndices = loadCheckedState();
 
+  let itemIndex = 0;
   for (const item of section.items) {
+    const currentIndex = itemIndex++;
     const row = document.createElement("tr");
 
     const checkCell = document.createElement("td");
@@ -80,21 +105,35 @@ export function renderSection(
     valueCell.textContent = item.value ?? "";
     row.appendChild(valueCell);
 
+    // Restore checked state from session
+    if (checkedIndices.has(currentIndex)) {
+      checkbox.checked = true;
+      row.classList.add("checked");
+    }
+
     // Click row to toggle checkbox
     row.addEventListener("click", (e) => {
       if ((e.target as HTMLElement).tagName !== "INPUT") {
         checkbox.checked = !checkbox.checked;
         row.classList.toggle("checked", checkbox.checked);
+        saveCheckedState();
       }
     });
     checkbox.addEventListener("change", () => {
       row.classList.toggle("checked", checkbox.checked);
+      saveCheckedState();
     });
 
     table.appendChild(row);
   }
 
   app.appendChild(table);
+
+  const hint = document.createElement("p");
+  hint.className = "keyboard-hint";
+  hint.textContent =
+    "Arrow Up / Down to navigate actions. Space to check or uncheck. Arrow Left / Right to switch sections.";
+  app.appendChild(hint);
 
   // Keyboard navigation
   const rows = Array.from(table.rows);
@@ -136,9 +175,16 @@ export function renderSection(
       const checkbox = row.querySelector("input") as HTMLInputElement;
       checkbox.checked = !checkbox.checked;
       row.classList.toggle("checked", checkbox.checked);
+      saveCheckedState();
       if (highlightedIndex < rows.length - 1) {
         setHighlight(highlightedIndex + 1);
       }
+    } else if (e.key === "ArrowLeft" && sectionIndex > 0) {
+      e.preventDefault();
+      location.hash = `#/${aircraftId}/${slugify(checklist.sections[sectionIndex - 1].name)}`;
+    } else if (e.key === "ArrowRight" && sectionIndex < checklist.sections.length - 1) {
+      e.preventDefault();
+      location.hash = `#/${aircraftId}/${slugify(checklist.sections[sectionIndex + 1].name)}`;
     }
   };
 
@@ -156,6 +202,19 @@ export function renderSection(
   // Prev/Next buttons
   const footer = document.createElement("div");
   footer.className = "section-footer";
+
+  const clearBtn = document.createElement("button");
+  clearBtn.textContent = "Clear All";
+  clearBtn.className = "nav-btn clear-btn";
+  clearBtn.addEventListener("click", () => {
+    for (const row of rows) {
+      const cb = row.querySelector<HTMLInputElement>("input");
+      if (cb) cb.checked = false;
+      row.classList.remove("checked");
+    }
+    saveCheckedState();
+  });
+  footer.appendChild(clearBtn);
 
   const prevBtn = document.createElement("button");
   prevBtn.textContent = "\u2190 Previous";
