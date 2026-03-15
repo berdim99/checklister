@@ -191,6 +191,19 @@ export function renderSection(
   const footer = document.createElement("div");
   footer.className = "section-footer";
 
+  const clearBtn = document.createElement("button");
+  clearBtn.textContent = "Clear All";
+  clearBtn.className = "nav-btn clear-btn";
+  clearBtn.addEventListener("click", () => {
+    for (const row of rows) {
+      const cb = row.querySelector<HTMLInputElement>("input");
+      if (cb) cb.checked = false;
+      row.classList.remove("checked");
+    }
+    saveCheckedState();
+  });
+  footer.appendChild(clearBtn);
+
   const prevBtn = document.createElement("button");
   prevBtn.textContent = "\u2190 Previous";
   prevBtn.className = "nav-btn";

@@ -193,3 +193,11 @@ h2 {
   opacity: 0.3;
   cursor: not-allowed;
 }
+
+.clear-btn {
+  background: #8b0000;
+}
+
+.clear-btn:hover {
+  background: #a52a2a;
+}
