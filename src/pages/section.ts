@@ -56,11 +56,36 @@ export function renderSection(
   heading.textContent = section.name;
   app.appendChild(heading);
 
+  // Session storage helpers
+  const storageKey = `checklist:${aircraftId}:${sectionSlug}`;
+
+  function saveCheckedState() {
+    const indices: number[] = [];
+    table.querySelectorAll("tr").forEach((row, i) => {
+      if (row.querySelector<HTMLInputElement>("input")?.checked) {
+        indices.push(i);
+      }
+    });
+    sessionStorage.setItem(storageKey, JSON.stringify(indices));
+  }
+
+  function loadCheckedState(): Set<number> {
+    try {
+      const raw = sessionStorage.getItem(storageKey);
+      return new Set(raw ? JSON.parse(raw) : []);
+    } catch {
+      return new Set();
+    }
+  }
+
   // Checklist table
   const table = document.createElement("table");
   table.className = "checklist-table";
+  const checkedIndices = loadCheckedState();
 
+  let itemIndex = 0;
   for (const item of section.items) {
+    const currentIndex = itemIndex++;
     const row = document.createElement("tr");
 
     const checkCell = document.createElement("td");
@@ -80,15 +105,23 @@ export function renderSection(
     valueCell.textContent = item.value ?? "";
     row.appendChild(valueCell);
 
+    // Restore checked state from session
+    if (checkedIndices.has(currentIndex)) {
+      checkbox.checked = true;
+      row.classList.add("checked");
+    }
+
     // Click row to toggle checkbox
     row.addEventListener("click", (e) => {
       if ((e.target as HTMLElement).tagName !== "INPUT") {
         checkbox.checked = !checkbox.checked;
         row.classList.toggle("checked", checkbox.checked);
+        saveCheckedState();
       }
     });
     checkbox.addEventListener("change", () => {
       row.classList.toggle("checked", checkbox.checked);
+      saveCheckedState();
     });
 
     table.appendChild(row);
@@ -136,6 +169,7 @@ export function renderSection(
       const checkbox = row.querySelector("input") as HTMLInputElement;
       checkbox.checked = !checkbox.checked;
       row.classList.toggle("checked", checkbox.checked);
+      saveCheckedState();
       if (highlightedIndex < rows.length - 1) {
         setHighlight(highlightedIndex + 1);
       }
