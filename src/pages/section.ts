@@ -96,6 +96,63 @@ export function renderSection(
 
   app.appendChild(table);
 
+  // Keyboard navigation
+  const rows = Array.from(table.rows);
+  let highlightedIndex = 0;
+
+  function setHighlight(index: number) {
+    rows[highlightedIndex]?.classList.remove("highlighted");
+    highlightedIndex = Math.max(0, Math.min(index, rows.length - 1));
+    const row = rows[highlightedIndex];
+    row.classList.add("highlighted");
+    row.scrollIntoView({ block: "nearest" });
+  }
+
+  // Move highlight on mouse click
+  table.addEventListener("click", (e) => {
+    const target = (e.target as HTMLElement).closest("tr");
+    if (target) {
+      const index = rows.indexOf(target as HTMLTableRowElement);
+      if (index !== -1) {
+        setHighlight(index);
+      }
+    }
+  });
+
+  if (rows.length > 0) {
+    setHighlight(0);
+  }
+
+  const onKeyDown = (e: KeyboardEvent) => {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setHighlight(highlightedIndex + 1);
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setHighlight(highlightedIndex - 1);
+    } else if (e.key === " ") {
+      e.preventDefault();
+      const row = rows[highlightedIndex];
+      const checkbox = row.querySelector("input") as HTMLInputElement;
+      checkbox.checked = !checkbox.checked;
+      row.classList.toggle("checked", checkbox.checked);
+      if (highlightedIndex < rows.length - 1) {
+        setHighlight(highlightedIndex + 1);
+      }
+    }
+  };
+
+  document.addEventListener("keydown", onKeyDown);
+
+  // Clean up listener when page changes
+  const observer = new MutationObserver(() => {
+    if (!app.contains(table)) {
+      document.removeEventListener("keydown", onKeyDown);
+      observer.disconnect();
+    }
+  });
+  observer.observe(app, { childList: true });
+
   // Prev/Next buttons
   const footer = document.createElement("div");
   footer.className = "section-footer";

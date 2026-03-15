@@ -129,6 +129,12 @@ h2 {
   background: #1a2a4a;
 }
 
+.checklist-table tr.highlighted {
+  outline: 2px solid #5a9fd4;
+  outline-offset: -2px;
+  background: #1a2a4a;
+}
+
 .checklist-table tr.checked {
   opacity: 0.5;
 }
