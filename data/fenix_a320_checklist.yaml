@@ -143,8 +143,8 @@ sections:
         value: TAXI
       - action: RWY Turnoff Lights
         value: As Required
-      - action: Strobes
-        value: Auto
+      - action: Chrono
+        value: Start
       - action: TO Config
         value: Normal
 
@@ -170,13 +170,13 @@ sections:
         value: TO
       - action: Landing Lights
         value: "ON"
+      - action: Strobes
+        value: "ON"
       - action: ECAM Memo
         value: TO No Blue
 
   - name: Takeoff
     items:
-      - action: Chrono
-        value: Start
       - action: Brakes
         value: As Required
       - action: Engines
@@ -281,6 +281,8 @@ sections:
         value: As Required
       - action: Landing Lights
         value: "OFF"
+      - action: Strobes
+        value: "OFF"
       - action: Nosewheel Lights
         value: TAXI
       - action: RWY Turnoff Lights
@@ -291,8 +293,6 @@ sections:
         value: Retracted
       - action: Engine Selector Mode
         value: NORM
-      - action: TCAS
-        value: STBY
       - action: Weather Radar
         value: "OFF"
       - action: Predictive Windshear
@@ -329,8 +329,8 @@ sections:
         value: "OFF"
       - action: Seatbelt Signs
         value: "OFF"
-      - action: Transponder Mode
-        value: "OFF"
+      - action: TCAS
+        value: STBY
       - action: Anti-Ice
         value: "OFF"
       - action: Exterior Lights
