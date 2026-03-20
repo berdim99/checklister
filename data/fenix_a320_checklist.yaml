@@ -98,7 +98,7 @@ sections:
       - action: TO Data
         value: Set & Reviewed
       - action: Transponder Mode
-        value: Auto
+        value: "ON"
       - action: Beacon Lights
         value: "ON"
       - action: Engine Mode Selector
