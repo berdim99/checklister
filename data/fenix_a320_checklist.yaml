@@ -207,10 +207,10 @@ sections:
 
   - name: Climb
     items:
-      - action: Baro (Passing Transition Altitude)
-        value: STD
       - action: Landing Lights (Passing 10000 ft)
         value: "OFF"
+      - action: Baro (Passing Transition Altitude)
+        value: STD
       - action: Seatbelt Signs
         value: As Required
       - action: Anti-Ice

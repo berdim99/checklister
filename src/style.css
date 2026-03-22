@@ -170,6 +170,25 @@ h2 {
   white-space: nowrap;
 }
 
+/* Subsection headers */
+.subsection-header {
+  cursor: default;
+}
+
+.subsection-header:hover {
+  background: inherit;
+}
+
+.subsection-header td {
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #555;
+  padding: 1rem 0.5rem 0.4rem;
+  border-bottom: 2px solid #ddd;
+}
+
 /* Footer nav */
 .section-footer {
   display: flex;
