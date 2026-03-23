@@ -1,4 +1,5 @@
 import { getChecklist, slugify } from "../data";
+import type { ChecklistItem } from "../types";
 
 export function renderSection(
   app: HTMLElement,
@@ -83,9 +84,7 @@ export function renderSection(
   table.className = "checklist-table";
   const checkedIndices = loadCheckedState();
 
-  let itemIndex = 0;
-  for (const item of section.items) {
-    const currentIndex = itemIndex++;
+  function addItemRow(item: ChecklistItem, index: number) {
     const row = document.createElement("tr");
 
     const checkCell = document.createElement("td");
@@ -105,13 +104,11 @@ export function renderSection(
     valueCell.textContent = item.value ?? "";
     row.appendChild(valueCell);
 
-    // Restore checked state from session
-    if (checkedIndices.has(currentIndex)) {
+    if (checkedIndices.has(index)) {
       checkbox.checked = true;
       row.classList.add("checked");
     }
 
-    // Click row to toggle checkbox
     row.addEventListener("click", (e) => {
       if ((e.target as HTMLElement).tagName !== "INPUT") {
         checkbox.checked = !checkbox.checked;
@@ -127,6 +124,27 @@ export function renderSection(
     table.appendChild(row);
   }
 
+  let itemIndex = 0;
+  if (section.subsections) {
+    for (const sub of section.subsections) {
+      const headerRow = document.createElement("tr");
+      headerRow.className = "subsection-header";
+      const headerCell = document.createElement("td");
+      headerCell.colSpan = 3;
+      headerCell.textContent = sub.name;
+      headerRow.appendChild(headerCell);
+      table.appendChild(headerRow);
+
+      for (const item of sub.items) {
+        addItemRow(item, itemIndex++);
+      }
+    }
+  } else if (section.items) {
+    for (const item of section.items) {
+      addItemRow(item, itemIndex++);
+    }
+  }
+
   app.appendChild(table);
 
   const hint = document.createElement("p");
@@ -135,8 +153,10 @@ export function renderSection(
     "Arrow Up / Down to navigate actions. Space to check or uncheck. Arrow Left / Right to switch sections.";
   app.appendChild(hint);
 
-  // Keyboard navigation
-  const rows = Array.from(table.rows);
+  // Keyboard navigation (skip subsection header rows)
+  const rows = Array.from(table.rows).filter(
+    (r) => !r.classList.contains("subsection-header")
+  );
   let highlightedIndex = 0;
 
   function setHighlight(index: number) {
@@ -165,10 +185,10 @@ export function renderSection(
   const onKeyDown = (e: KeyboardEvent) => {
     if (e.key === "ArrowDown") {
       e.preventDefault();
-      setHighlight(highlightedIndex + 1);
+      setHighlight(highlightedIndex < rows.length - 1 ? highlightedIndex + 1 : 0);
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
-      setHighlight(highlightedIndex - 1);
+      setHighlight(highlightedIndex > 0 ? highlightedIndex - 1 : rows.length - 1);
     } else if (e.key === " ") {
       e.preventDefault();
       const row = rows[highlightedIndex];

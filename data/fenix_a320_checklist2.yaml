@@ -1,0 +1,288 @@
+id: fenix-a320-2
+name: Fenix A320 v2
+sections:
+  - name: Cockpit Preparation
+    subsections:
+      - name: Power Up & Overhead Panel
+        items:
+          - action: Parking Brake
+            value: Set
+          - action: Battery 1 & 2
+            value: "ON"
+          - action: External Power
+            value: As Req / ON
+          - action: Nav & Logo Lights
+            value: "ON"
+          - action: APU
+            value: Start
+          - action: APU Bleed
+            value: "ON"
+          - action: External Power
+            value: "OFF"
+          - action: ADIRS
+            value: Nav
+          - action: Fuel Pumps
+            value: "ON"
+          - action: Oxygen Crew Supply
+            value: "ON"
+          - action: Emergency Exit Lights
+            value: Arm
+          - action: Overhead Panel
+            value: Check
+          - action: Seatbelt Signs
+            value: "ON"
+          - action: No Smoking
+            value: Auto
+      - name: Glare Shield, Main Panel & Pedestal
+        items:
+          - action: Altimeter/Baro Ref (EFIS & STBY)
+            value: Set Local
+          - action: FD Button
+            value: Check On
+          - action: EFIS Modes & Lighting
+            value: As Req
+          - action: FCU SPD
+            value: Check Dashed
+          - action: FCU HDG
+            value: Check Dashed
+          - action: FCU ALT SEL
+            value: Set Altitude
+          - action: Weather Radar
+            value: Check Off
+          - action: Transponder/TCAS
+            value: Stby
+
+  - name: Pushback & Engine Start
+    subsections:
+      - name: Before Pushback
+        items:
+          - action: Parking Brake
+            value: Verify Set
+          - action: Windows
+            value: Closed
+          - action: External Power
+            value: Verify Off
+          - action: APU Bleed
+            value: Verify On
+      - name: Pushback
+        items:
+          - action: Beacon
+            value: "ON"
+          - action: ENG Mode Selector
+            value: Ign/Start
+          - action: ENG 1 Master Switch
+            value: "ON"
+          - action: ENG 1 Parameters
+            value: Monitor
+          - action: ENG 2 Master Switch
+            value: "ON"
+          - action: ENG 2 Parameters
+            value: Monitor
+
+  - name: After Start & Before Taxi
+    items:
+      - action: ENG Mode Selector
+        value: As Req / Norm
+      - action: APU Bleed
+        value: "OFF"
+      - action: APU Master
+        value: "OFF"
+      - action: Engine & Wing Anti-Ice
+        value: As Req
+      - action: Auto Brake
+        value: Max
+      - action: Flaps
+        value: Set For Takeoff
+      - action: Ground Spoilers
+        value: Arm
+      - action: Rudder & Aileron Trim
+        value: Zero
+      - action: Pitch Trim
+        value: As Calculated
+      - action: Flight Controls
+        value: Free & Full Movement
+      - action: ATC Clearance
+        value: As Req
+      - action: Nose Lights
+        value: Taxi
+      - action: Runway Turnoff Lights
+        value: As Req / On (at night)
+
+  - name: Before Takeoff
+    items:
+      - action: Terrain on ND
+        value: As Req
+      - action: Weather Radar
+        value: "ON"
+      - action: Predictive Windshear
+        value: "ON"
+      - action: Transponder/TCAS
+        value: "ON"
+      - action: Transponder/TCAS
+        value: TA/RA
+      - action: TO Config Test
+        value: Push
+      - action: Pack 1 & 2
+        value: As Req
+      - action: Engine & Wing Anti-Ice
+        value: As Req
+      - action: ENG Mode Selector
+        value: As Req
+      - action: Nose Light
+        value: Takeoff
+      - action: Landing Lights
+        value: "ON"
+      - action: Strobe Lights
+        value: "ON"
+
+  - name: After Takeoff
+    subsections:
+      - name: After Takeoff
+        items:
+          - action: Landing Gear
+            value: Verify Up
+          - action: Flaps
+            value: Verify Retracted
+          - action: Ground Spoilers
+            value: Disarm
+          - action: Pack 1 & 2
+            value: "ON"
+          - action: Engine & Wing Anti-Ice
+            value: As Req
+          - action: ENG Mode Selector
+            value: As Req
+      - name: Passing 10,000 ft
+        items:
+          - action: Landing Lights
+            value: Off & Retract
+          - action: Nose Light
+            value: "OFF"
+          - action: Terrain On ND
+            value: "OFF"
+          - action: Passenger Signs
+            value: As Req
+      - name: Passing Transition Altitude
+        items:
+          - action: Altimeter
+            value: Set STD
+
+  - name: Cruise
+    items:
+      - action: Seatbelt Signs
+        value: "OFF"
+      - action: FMAs
+        value: Check
+      - action: Pressurization
+        value: Check
+      - action: Flight Plan
+        value: Monitor
+      - action: Top of Descent
+        value: Cross Check
+
+  - name: Descent
+    subsections:
+      - name: ""
+        items:
+          - action: Autobrake
+            value: As Req
+          - action: Passenger Signs
+            value: As Req
+          - action: FCU Alt Select
+            value: Set
+      - name: Top of Descent
+        items:
+          - action: Engine & Wing Anti-Ice
+            value: As Req
+          - action: ENG Mode Selector
+            value: As Req
+      - name: Passing Transition Altitude
+        items:
+          - action: Altimeter
+            value: Set Local
+      - name: Passing 10,000 ft
+        items:
+          - action: Landing Lights
+            value: "ON"
+          - action: Nose Lights
+            value: Takeoff
+          - action: Terrain On ND
+            value: As Req
+          - action: Passenger Signs
+            value: "ON"
+          - action: LS Button
+            value: "ON"
+
+  - name: Approach
+    subsections:
+      - name: Cleared for Approach
+        items:
+          - action: Autobrake
+            value: Check Set
+          - action: Ground Spoilers
+            value: Arm
+          - action: Altimeters
+            value: Verify Local
+          - action: Engine & Wing Anti-Ice
+            value: As Req
+          - action: ENG Mode Selector
+            value: As Req
+      - name: Before Landing
+        items:
+          - action: Auto Brakes
+            value: Verify Set
+          - action: Ground Spoilers
+            value: Verify Arm
+          - action: Landing Gear
+            value: Verify Down & Green
+          - action: Flaps
+            value: Verify Set
+
+  - name: After Landing
+    items:
+      - action: Strobe Lights
+        value: "OFF"
+      - action: Landing Lights
+        value: "OFF"
+      - action: Nose Lights
+        value: Taxi
+      - action: Runway Turnoff Lights
+        value: As Req / On (at night)
+      - action: Flaps
+        value: Retract
+      - action: Ground Spoilers
+        value: Retract
+      - action: Terrain On ND
+        value: "OFF"
+      - action: Weather Radar
+        value: "OFF"
+      - action: Pred. Windshear
+        value: "OFF"
+      - action: Transponder / TCAS
+        value: Stby
+      - action: APU
+        value: As Req / Start
+      - action: Anti-Ice
+        value: As Req
+
+  - name: Parking / Gate
+    items:
+      - action: Parking Brake
+        value: Set
+      - action: Nose Lights
+        value: "OFF"
+      - action: Anti-Ice
+        value: "OFF"
+      - action: APU Bleed
+        value: "ON"
+      - action: Elapsed Timer
+        value: Stop
+      - action: Engine Master 1 & 2
+        value: "OFF"
+      - action: Seatbelt Signs
+        value: "OFF"
+      - action: Beacon
+        value: "OFF"
+      - action: Fuel Pumps
+        value: "OFF"
+      - action: Transponder / TCAS
+        value: "OFF"
